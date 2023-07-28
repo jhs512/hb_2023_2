@@ -47,3 +47,11 @@ logging:
 custom:
   site:
     baseUrl: http://localhost:8080
+management:
+  endpoint:
+    health:
+      group:
+        readiness:
+          show-components: always
+        liveness:
+          show-components: always
