@@ -13,13 +13,13 @@ management:
 spring:
   data:
     redis:
-      host: 172.17.0.1
+      host: redis-1-service
   lifecycle:
     timeout-per-shutdown-phase: 1m
   autoconfigure:
     exclude:
   datasource:
-    url: jdbc:mariadb://172.17.0.1:3306/hb_2023_1__prod?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul
+    url: jdbc:mariadb://mariadb-1-service:3306/hb_2023_2__prod?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul
     username: lldjlocal
     password: 1234
   jpa:
@@ -38,4 +38,4 @@ logging:
     org.hibernate.orm.jdbc.extract: INFO
 custom:
   site:
-    baseUrl: https://ec2-1.dlike.me
+    baseUrl: https://www.dlike.me
