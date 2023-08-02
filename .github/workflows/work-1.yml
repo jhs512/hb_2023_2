@@ -100,8 +100,10 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
-      - run: |
+      - name: set lower case owner name
+        run: |
           echo "OWNER_LC=${OWNER,,}" >> ${GITHUB_ENV}
-          kubectl set image deployment.apps/dlike-1 dlike-1=ghcr.io/${{ env.OWNER_LC }}/dlike-1:${{ needs.tag.outputs.tag_name }}
         env:
           OWNER: '${{ github.repository_owner }}'
+      - run: |
+          kubectl set image deployment.apps/dlike-1 dlike-1=ghcr.io/${{ env.OWNER_LC }}/dlike-1:${{ needs.tag.outputs.tag_name }}
